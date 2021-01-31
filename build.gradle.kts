@@ -35,6 +35,7 @@ tasks.getByName<Test>("test") {
     testLogging.showStandardStreams = true
     systemProperties(System.getProperties().toMap() as Map<String,Object>)
 
+    // will not work - works only with Java Classes
     maxParallelForks = 3
 }
 
