@@ -1,4 +1,4 @@
-package io.iljapavlovs.cucumber.runners;
+package io.iljapavlovs.cucumber;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
     },
     features = {"src/test/resources/features"},
     tags = "@all",
-    glue = {"io.iljapavlovs.cucumber.stepdefs"}
+    glue = {"io.iljapavlovs.cucumber.steps"}
 )
 public class RunCukesAllTest {
   private static long duration;

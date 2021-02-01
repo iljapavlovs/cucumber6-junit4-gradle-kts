@@ -1,4 +1,4 @@
-package io.iljapavlovs.cucumber.runners;
+package io.iljapavlovs.cucumber;
 
 
 import io.cucumber.junit.Cucumber;
@@ -10,14 +10,12 @@ import org.junit.runner.RunWith;
     plugin = {
         "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm",
         "summary",
-        "pretty",
-        "rerun:build/rerun.txt",
+        "pretty"
     },
-    features = {"src/test/resources/features"},
-    tags = "@cheese",
+    features = {"@build/rerun.txt"},
     glue = {"io.iljapavlovs.cucumber.stepdefs"}
 )
-public class RunCukesCheeseTest {
+public class FailedScenariosTest {
 
 }
 

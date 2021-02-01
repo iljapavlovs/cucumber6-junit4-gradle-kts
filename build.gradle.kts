@@ -17,6 +17,9 @@ repositories {
 dependencies {
     testImplementation("io.cucumber:cucumber-java:6.9.1")
     testImplementation("io.cucumber:cucumber-junit:6.9.1")
+//    testImplementation("io.cucumber:cucumber-spring:6.9.1")
+    testImplementation("io.cucumber:cucumber-picocontainer:6.9.1")
+
 
     testImplementation("org.projectlombok:lombok:1.18.16")
     testImplementation("org.assertj:assertj-core:3.11.1")
@@ -25,6 +28,14 @@ dependencies {
 
     testImplementation("io.qameta.allure:allure-cucumber6-jvm:2.13.8")
     testImplementation("org.awaitility:awaitility:4.0.3")
+
+
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.12.1")
+
+
+
+
+
 }
 
 tasks.getByName<Test>("test") {
