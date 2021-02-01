@@ -6,6 +6,11 @@
 * Parallel execution
 * rerun failed tests
 
+# Execution
+```
+./gradlew clean test allureReport
+```
+
 ### offtopic - Junit 5 support (Not yet ready)
 
 * [Support for Junit 5 Issue Github](https://github.com/cucumber/cucumber-jvm/issues/1149#issuecomment-611716745)

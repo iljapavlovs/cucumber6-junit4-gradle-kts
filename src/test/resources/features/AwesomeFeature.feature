@@ -1,3 +1,4 @@
+@all
 Feature: Awesome Feature
 
   Scenario: You can re-use existing steps

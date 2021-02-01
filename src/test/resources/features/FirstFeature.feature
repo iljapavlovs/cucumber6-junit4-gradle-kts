@@ -1,3 +1,4 @@
+@all
 Feature: Your First Feature
 
   Scenario: Some titel for a single test scenario
