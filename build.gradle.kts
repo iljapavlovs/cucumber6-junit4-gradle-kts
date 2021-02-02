@@ -17,8 +17,8 @@ repositories {
 dependencies {
     testImplementation("io.cucumber:cucumber-java:6.9.1")
     testImplementation("io.cucumber:cucumber-junit:6.9.1")
-//    testImplementation("io.cucumber:cucumber-spring:6.9.1")
-    testImplementation("io.cucumber:cucumber-picocontainer:6.9.1")
+    testImplementation("io.cucumber:cucumber-spring:6.9.1")
+//    testImplementation("io.cucumber:cucumber-picocontainer:6.9.1")
 
 
     testImplementation("org.projectlombok:lombok:1.18.16")
@@ -33,6 +33,11 @@ dependencies {
     testImplementation("com.fasterxml.jackson.core:jackson-databind:2.12.1")
 
 
+//    testImplementation("org.springframework:spring-context:5.2.0")
+
+    testImplementation("org.springframework:spring-context-support:5.3.3")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.4.2")
 
 
 

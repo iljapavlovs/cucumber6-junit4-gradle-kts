@@ -1,16 +1,22 @@
 package io.iljapavlovs.cucumber.steps;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.spring.ScenarioScope;
 import io.iljapavlovs.cucumber.state.ScenarioState;
 import io.iljapavlovs.cucumber.state.SomeObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Component;
 
+@SpringBootTest
 public class SetupSteps {
 
-  private final ScenarioState state;
+  @Autowired
+  private ScenarioState state;
 
-  public SetupSteps(ScenarioState state) {
-    this.state = state;
-  }
+//  public SetupSteps(ScenarioState state) {
+//    this.state = state;
+//  }
 
   @Given("something exists")
   public void something() {

@@ -5,14 +5,16 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import io.cucumber.java.en.Then;
 import io.iljapavlovs.cucumber.state.ScenarioState;
 import io.iljapavlovs.cucumber.state.SomeObject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ResultSteps {
 
-  private final ScenarioState state;
+  @Autowired
+  private ScenarioState state;
 
-  public ResultSteps(ScenarioState state) {
-    this.state = state;
-  }
+//  public ResultSteps(ScenarioState state) {
+//    this.state = state;
+//  }
 
   @Then("some result will be calculated")
   public void result() {
