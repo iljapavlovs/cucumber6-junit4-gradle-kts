@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.projectlombok:lombok:1.18.16")
     testImplementation("io.cucumber:cucumber-java:6.9.1")
     testImplementation("io.cucumber:cucumber-junit:6.9.1")
     implementation("io.cucumber:cucumber-guice:6.9.1")
@@ -24,7 +25,9 @@ dependencies {
 
 
 
-    testImplementation("org.projectlombok:lombok:1.18.16")
+    compileOnly("org.projectlombok:lombok:1.18.16")
+    annotationProcessor("org.projectlombok:lombok:1.18.16")
+
     testImplementation("org.assertj:assertj-core:3.11.1")
     testImplementation("com.codeborne:selenide:5.18.0")
     testImplementation("org.testcontainers:selenium:1.15.1")
@@ -35,9 +38,14 @@ dependencies {
 
 
     testImplementation("com.fasterxml.jackson.core:jackson-databind:2.12.1")
+    testImplementation("com.github.tomakehurst:wiremock-jre8:2.27.2")
+    implementation("commons-configuration:commons-configuration:1.10")
 
 
 
+    implementation("com.google.inject:guice:4.1.0")
+    testImplementation("com.mycila.guice.extensions:mycila-guice-jsr250:4.0.rc1")
+    testImplementation("com.mycila.guice.extensions:mycila-guice-closeable:4.0.rc1")
 
 
 }
