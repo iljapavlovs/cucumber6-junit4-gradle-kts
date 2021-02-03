@@ -2,6 +2,7 @@ package io.iljapavlovs.cucumber.steps.expressionexamples;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +10,7 @@ import io.cucumber.java.en.When;
 import io.iljapavlovs.cucumber.DateCalculator;
 import java.time.LocalDate;
 
+@ScenarioScoped
 public class DateSteps {
 
   private String result;

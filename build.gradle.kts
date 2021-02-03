@@ -12,19 +12,23 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
     testImplementation("io.cucumber:cucumber-java:6.9.1")
     testImplementation("io.cucumber:cucumber-junit:6.9.1")
-//    testImplementation("io.cucumber:cucumber-spring:6.9.1")
-    testImplementation("io.cucumber:cucumber-picocontainer:6.9.1")
+    implementation("io.cucumber:cucumber-guice:6.9.1")
+    implementation("org.slf4j:slf4j-api:1.7.25")
+    implementation("com.google.guava:guava:23.0")
+
 
 
     testImplementation("org.projectlombok:lombok:1.18.16")
     testImplementation("org.assertj:assertj-core:3.11.1")
     testImplementation("com.codeborne:selenide:5.18.0")
     testImplementation("org.testcontainers:selenium:1.15.1")
+    testImplementation("org.testcontainers:testcontainers:1.15.1")
 
     testImplementation("io.qameta.allure:allure-cucumber6-jvm:2.13.8")
     testImplementation("org.awaitility:awaitility:4.0.3")

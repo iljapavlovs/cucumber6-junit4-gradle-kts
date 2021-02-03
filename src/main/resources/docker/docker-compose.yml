@@ -1,0 +1,15 @@
+version: '3'
+services:
+  country-phone:
+    environment:
+      - SPRING_PROFILES=local
+    command: /opt/docker-app-start.sh
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    image: ilja07/country-phone
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker-wait-for-it.sh:/opt/docker-wait-for-it.sh:ro
+      - ./docker-wait-for-others.sh:/opt/docker-wait-for-others.sh:ro

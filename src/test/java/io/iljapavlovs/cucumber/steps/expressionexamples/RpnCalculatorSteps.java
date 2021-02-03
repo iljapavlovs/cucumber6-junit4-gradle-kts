@@ -2,6 +2,7 @@ package io.iljapavlovs.cucumber.steps.expressionexamples;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -11,6 +12,7 @@ import io.cucumber.java.en.When;
 import io.iljapavlovs.cucumber.RpnCalculator;
 import java.util.List;
 
+@ScenarioScoped
 public class RpnCalculatorSteps {
 
   private RpnCalculator calc;

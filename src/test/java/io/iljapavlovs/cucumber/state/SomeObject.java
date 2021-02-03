@@ -1,5 +1,8 @@
 package io.iljapavlovs.cucumber.state;
 
+import io.cucumber.guice.ScenarioScoped;
+
+
 public class SomeObject {
 
   private String someString;

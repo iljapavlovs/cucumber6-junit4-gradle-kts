@@ -1,16 +1,20 @@
 package io.iljapavlovs.cucumber.steps;
 
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.Given;
 import io.iljapavlovs.cucumber.state.ScenarioState;
 import io.iljapavlovs.cucumber.state.SomeObject;
+import javax.inject.Inject;
 
+@ScenarioScoped
 public class SetupSteps {
 
-  private final ScenarioState state;
+  @Inject
+  private ScenarioState state;
 
-  public SetupSteps(ScenarioState state) {
-    this.state = state;
-  }
+//  public SetupSteps(ScenarioState state) {
+//    this.state = state;
+//  }
 
   @Given("something exists")
   public void something() {

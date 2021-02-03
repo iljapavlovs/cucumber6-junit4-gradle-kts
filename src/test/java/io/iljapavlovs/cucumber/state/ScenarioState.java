@@ -1,8 +1,11 @@
 package io.iljapavlovs.cucumber.state;
 
+import io.cucumber.guice.ScenarioScoped;
+
 /**
  * An instance of this class will be injected in each scenario, thus allowing all scenarios to be run in parallel.
  */
+@ScenarioScoped
 public class ScenarioState {
 
     private String userInput;

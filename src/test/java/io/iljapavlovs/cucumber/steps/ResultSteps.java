@@ -2,17 +2,22 @@ package io.iljapavlovs.cucumber.steps;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.Then;
 import io.iljapavlovs.cucumber.state.ScenarioState;
 import io.iljapavlovs.cucumber.state.SomeObject;
+import javax.inject.Inject;
 
+
+@ScenarioScoped
 public class ResultSteps {
 
-  private final ScenarioState state;
+  @Inject
+  private ScenarioState state;
 
-  public ResultSteps(ScenarioState state) {
-    this.state = state;
-  }
+//  public ResultSteps(ScenarioState state) {
+//    this.state = state;
+//  }
 
   @Then("some result will be calculated")
   public void result() {

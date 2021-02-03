@@ -2,6 +2,7 @@ package io.iljapavlovs.cucumber.steps.expressionexamples;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.DocStringType;
 import io.cucumber.java.ParameterType;
@@ -17,6 +18,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@ScenarioScoped
 public class ShoppingSteps {
 
   private final RpnCalculator calc = new RpnCalculator();
