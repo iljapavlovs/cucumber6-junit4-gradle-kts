@@ -23,14 +23,18 @@ import org.testcontainers.containers.wait.strategy.Wait;
 @Slf4j
 public abstract class AbstractCiAcceptanceTest {
 
-  private static final ServiceEndpoint SERVICE_INTERNAL_ENDPOINT = new ServiceEndpoint("http", "service", 8080);
+  private static final ServiceEndpoint SERVICE_INTERNAL_ENDPOINT = new ServiceEndpoint("http", "country-phone", 8080);
 
+  @SuppressWarnings("unchecked")
   @ClassRule
   public static DockerComposeContainer ECOSYSTEM =
-      new DockerComposeContainer(locateInClasspath("docker/docker-compose-internal.yml"))
+          //todo - in order to use docker-compose-internal.yml, we need to get real port from TC,
+          // which we get in populateExposedPorts(). However,
+          // when environmentConfig.setServicePort(realServicePort(SERVICE_INTERNAL_ENDPOINT))
+          // - port is not set with new value!
+      new DockerComposeContainer<>(locateInClasspath("docker/docker-compose.yml"))
           .withEnv(containerEnvVars())
-          .withExposedService(SERVICE_INTERNAL_ENDPOINT.getHost(), 1, SERVICE_INTERNAL_ENDPOINT.getPort(),
-              Wait.forHttp("/actuator/health").forStatusCode(200).withStartupTimeout(Duration.ofMinutes(3)))
+          .withExposedService(SERVICE_INTERNAL_ENDPOINT.getHost(), 1, SERVICE_INTERNAL_ENDPOINT.getPort())
           .withLocalCompose(true)
           .withPull(true)
           .withTailChildContainers(true)
@@ -65,7 +69,7 @@ public abstract class AbstractCiAcceptanceTest {
   }
 
   private static File locateInClasspath(String pathToFile) {
-    URL resource = Resources.getResource(pathToFile);
+    URL resource = AbstractCiAcceptanceTest.class.getClassLoader().getResource(pathToFile);
     log.info("{} was found in {}", pathToFile, resource);
     try {
       return new File(resource.toURI());

@@ -14,8 +14,8 @@ public class EnvironmentConfig extends TestConfiguration {
     return getString(SERVICE_HOST );
   }
 
-  public void setServiceHost(Integer port) {
-    setProperty(SERVICE_HOST, port);
+  public void setServiceHost(Integer host) {
+    setProperty(SERVICE_HOST, host);
   }
 
   public Integer getServicePort() {

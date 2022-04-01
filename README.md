@@ -8,7 +8,7 @@
 
 # Execution
 ```
-./gradlew clean test allureReport
+./gradlew clean test allureReport -Dtest-env=local -Dtest-config-file=service.properties
 ```
 
 ### offtopic - Junit 5 support (Not yet ready)

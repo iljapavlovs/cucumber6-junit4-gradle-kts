@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -84,8 +85,8 @@ public class TestConfigurationProvider {
     private <C extends TestConfiguration> C newConfiguration(Class<C> clazz, String profile, List<String> propertyFiles) {
         C config;
         try {
-            config = clazz.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
+            config = clazz.getDeclaredConstructor().newInstance();
+        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             LOGGER.error("Failed to instantiate configuration class {}", clazz, e);
             throw new RuntimeException(e);
         }
@@ -103,7 +104,7 @@ public class TestConfigurationProvider {
             }
 
             // Should exist as an absolute path or as a classpath resource
-            if (Files.exists(fullPathToFile) || Resources.getResource(fullPathToFile.toString()) != null) {
+            if (Files.exists(fullPathToFile) || getClass().getClassLoader().getResource(fullPathToFile.toString()) != null) {
                 try {
                     config.addConfiguration(new PropertiesConfiguration(fullPathToFile.toString()));
                 } catch (ConfigurationException e) {
